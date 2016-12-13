@@ -12,7 +12,6 @@
   }
 ?>
 
-
 <!doctype HTML>
 <html>
 	<meta charset="utf-8">
@@ -27,34 +26,319 @@
 	<body>
 
 
+    <!--添加教务管理员的模态框-->
+    <div class="modal fade add_modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title title">添加教务管理员</h4>
+          </div>
+          <div class="modal-body">
+            <fieldset class="form-group">
+    					<label for="user">账号:</label>
+    					<input class="form-control" id="user" placeholder="请输入账号">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="pwd">密码:</label>
+    					<input class="form-control"  id="pwd" placeholder="请输入密码">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="name">姓名:</label>
+    					<input class="form-control"  id="name" placeholder="请输入姓名">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="sex">性别:</label>
+    					<input class="form-control"  id="sex" placeholder="请输入性别">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="age">年龄:</label>
+    					<input class="form-control" id="age" placeholder="请输入年龄">
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary add_submit">添加</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--模态框结束-->
+
+
+    <!--修改教务管理员的模态框-->
+    <div class="modal fade alter_modal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              <span class="sr-only">Close</span>
+            </button>
+            <h4 class="modal-title title">修改教务管理员</h4>
+          </div>
+          <div class="modal-body">
+            <fieldset class="form-group">
+    					<label for="user">修改账号:</label>
+    					<input class="form-control" id="user_alter" placeholder="输输入账号">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="pwd">修改密码:</label>
+    					<input class="form-control"  id="pwd_alter" placeholder="请输入密码">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="name">修改姓名:</label>
+    					<input class="form-control"  id="name_alter" placeholder="请输入姓名">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="sex">修改性别:</label>
+    					<input class="form-control"  id="sex_alter" placeholder="请输入性别">
+    				</fieldset>
+            <fieldset class="form-group">
+    					<label for="age">修改年龄:</label>
+    					<input class="form-control" id="age_alter" placeholder="请输入年龄">
+            </fieldset>
+              <input style="display:none" id="userid"/>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary alter_submit">修改</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!--模态框结束-->
+
+
+
     <div class="top-panel">
     </div>
 
-        <!-- 头部导航-->
-    <ul class="nav nav-tabs" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" href="#home" role="tab" data-toggle="tab">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#profile" role="tab" data-toggle="tab">Profile</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#messages" role="tab" data-toggle="tab">Messages</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#settings" role="tab" data-toggle="tab">Settings</a>
-      </li>
-    </ul>
-
-    <!-- Tab panes -->
-    <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active" id="home">...</div>
-      <div role="tabpanel" class="tab-pane" id="profile">...</div>
-      <div role="tabpanel" class="tab-pane" id="messages">...</div>
-      <div role="tabpanel" class="tab-pane" id="settings">...</div>
+    <div class="container main_panel">
+      <!-- 头部导航-->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active nav_tea_manager" href="#tea_manager" role="tab" data-toggle="tab">教务管理员</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav_sys_info" href="#sys_info" role="tab" data-toggle="tab">系所信息</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav_profession" href="#profession" role="tab" data-toggle="tab">专业信息</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav_class_info" href="#class_info" role="tab" data-toggle="tab">班级信息</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav_course_type" href="#course_type" role="tab" data-toggle="tab">课程类别</a>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="tea_manager"><?php
+          require("./tea_manager.php");
+         ?>
+         <a class="add_btn"><img class="add" src="../../images/add.png"></img></a>
+       </div>
+        <div role="tabpanel" class="tab-pane" id="sys_info">
+          <?php require("./xisuo_info.php"); ?>
+          <a class="add_xisuo"><img class="add" src="../../images/add.png"></img></a>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="profession">专业信息</div>
+        <div role="tabpanel" class="tab-pane" id="class_info">班级信息</div>
+        <div role="tabpanel" class="tab-pane" id="course_type">课程类别</div>
+      </div>
     </div>
-
     <script src="../../js/jquery-3.1.1.min.js"></script>
 		<script src="../../js/bootstrap.min.js"></script>
+    <script text="text/javascript">
+      $(document).ready(function() {
+
+        $(".add_xisuo").click(function(){
+          $(".add_xisuo_modal").modal("show");
+        });
+
+        $(".add_btn").click(function(){
+          $(".add_modal").modal("show");
+        });
+
+        $(".alter_submit").click(function(){
+
+          var user = $("#user_alter").val();
+          var pwd = $("#pwd_alter").val();
+          var name = $("#name_alter").val();
+          var age = $("#age_alter").val();
+          var sex = $("#sex_alter").val();
+          var userid = $("#userid").val();
+
+          var data = {
+            user:user,
+            pwd:pwd,
+            name:name,
+            age:age,
+            sex:sex,
+            userid:userid
+          }
+
+
+          var url = "../../controller/alter_tea_manager.php";
+
+          $.ajax({
+            url:url,
+            data:data,
+            type:'POST',
+            success:function(data){
+              //成功后会返回数据
+              if(data == 1){
+                //刷新操作
+                alert("修改成功");
+                //刷新
+                location.href=".";
+              }else{
+                alert("插入失败，请重新输入");
+              }
+            },
+            error:function(){
+              alert(arguments[1]);
+            }
+          });
+
+        });
+
+        $(".add_submit").click(function(){
+          //使用ajax进行操作
+          var user = $("#user").val();
+          var pwd = $("#pwd").val();
+          var name = $("#name").val();
+          var age = $("#age").val();
+          var sex = $("#sex").val();
+
+          var data = {
+            'user':user,
+            'pwd':pwd,
+            'name':name,
+            'age':age,
+            'sex':sex
+          };
+
+          var url = "../../controller/add_tea_manager.php";
+          $.ajax({
+            url:url,
+            data:data,
+            type:'POST',
+            success:function(data){
+              //成功后会返回数据
+              if(data == 1){
+                //刷新操作
+                alert("插入成功");
+                //刷新
+                location.href=".";
+              }else{
+                alert("插入失败，请重新输入");
+              }
+            },
+            error:function(){
+              alert(arguments[1]);
+            }
+          });
+        });
+
+
+        $(".del").click(function(){
+          //点击删除按钮后，进行删除，首先要获取按钮的id之
+
+          var id = $(this).val();
+          //进行删除
+          var url = "../../controller/del_tea_manager.php?id=" + id;
+          $.ajax({
+            url:url,
+            type:'GET',
+            success:function(data){
+              //成功后会返回数据
+              if(data == 1){
+                //刷新操作
+                alert("删除成功");
+                //刷新
+                location.href=".";
+              }else{
+                alert("删除失败");
+              }
+            },
+            error:function(){
+              alert(arguments[1]);
+            }
+          });
+        });
+
+        $(".alter").click(function(){
+          var id = $(this).val();
+          var url = "../../controller/get_tea_manager_info.php?id=" + id;
+          $.ajax({
+            url:url,
+            type:'GET',
+            success:function(data){
+              //var result = $.parseJson(data);
+              var result =  eval("(" + data + ")");
+              //得到结果后，将来模态框的值改了
+
+              $("#user_alter").val(result["user"]);
+              $("#pwd_alter").val(result["pwd"]);
+              $("#name_alter").val(result["name"]);
+              $("#age_alter").val(result["age"]);
+              $("#sex_alter").val(result["sex"]);
+              $("#userid").val(result["userid"]);
+
+              $(".alter_modal").modal("show");
+            },
+            error:function(){
+              alert(arguments[1]);
+            }
+          });
+        });
+
+        $(".alter_xisuo").click(function(){
+          var name = $(this).val();
+          arrs = name.split(".");
+
+          name = arrs[1];
+          var id = arrs[0];
+
+          $("#xisuo_name_alter").val(name);
+          $("#xisuo_id").val(id);
+          $(".alter_xisuo_modal").modal("show");
+        });
+
+
+      });
+    </script>
+    <?php
+      if(isset($_GET["id"])){
+        $id = $_GET["id"];
+        if($id==2){
+          echo '<script>$(".nav_tea_manager").removeClass("active");
+          $(".nav_sys_info").addClass("active");
+          $("#tea_manager").removeClass("active");
+          $("#sys_info").addClass("active");</script>';
+        }else if($id == 3){
+          echo '<script>$(".nav_tea_manager").removeClass("active");
+          $(".nav_profession").addClass("active");
+          $("#tea_manager").removeClass("active");
+          $("#profession").addClass("active");</script>';
+        }else if($id == 4){
+          echo '<script>$(".nav_tea_manager").removeClass("active");
+          $(".nav_class_info").addClass("active");
+          $("#tea_manager").removeClass("active");
+          $("#class_info").addClass("active");</script>';
+        }else if($id == 5){
+          echo '<script>$(".nav_tea_manager").removeClass("active");
+          $(".nav_course_type").addClass("active");
+          $("#tea_manager").removeClass("active");
+          $("#course_type").addClass("active");</script>';
+        }
+      }
+    ?>
 	</body>
 </html>

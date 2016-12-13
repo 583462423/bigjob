@@ -10,3 +10,37 @@ body,html{
   background: linear-gradient(to left, #3a6186 , #89253e); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   width:100%;
 }
+
+.main_panel{
+  position: relative;
+  top:-40px;
+}
+
+.nav-link{
+  color:white;
+}
+
+.nav-link:hover{
+  color:white;
+}
+
+.tab-pane{
+  margin:10px;
+}
+
+.add{
+  width:40px;
+  height:40px;
+  padding:10px;
+  border-radius: 100px;
+  background: #D9534F;
+  float:right;
+}
+
+.add:hover{
+  background: #5BC0DE;
+}
+
+.del{
+  margin-right: 5px;
+}

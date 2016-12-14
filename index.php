@@ -107,11 +107,11 @@
 						//教务管理员
 						header("Location:"."./php/tea_manager/index.php");
 						break;
-					case 2:
+					case 3:
 						//老师
 						header("Location:"."./php/teacher/index.php");
 						break;
-					case 3:
+					case 2:
 						//学生
 						header("Location:"."./php/student/index.php");
 						break;

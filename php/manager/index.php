@@ -118,6 +118,7 @@
 
 
     <div class="top-panel">
+
     </div>
 
     <div class="container main_panel">
@@ -137,6 +138,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link nav_course_type" href="#course_type" role="tab" data-toggle="tab">课程类别</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav_alter_pwd" href="#alter_pwd" role="tab" data-toggle="tab">修改密码</a>
         </li>
       </ul>
       <!-- Tab panes -->
@@ -161,7 +165,25 @@
         <div role="tabpanel" class="tab-pane" id="class_info">
           <?php require("./class_info.php"); ?>
         </div>
-        <div role="tabpanel" class="tab-pane" id="course_type">课程类别</div>
+        <div role="tabpanel" class="tab-pane" id="course_type">
+          <?php require("./course_type.php"); ?>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="alter_pwd">
+          <div class="alter_pwd_pane container">
+            <form action="../../controller/alter_pwd.php" method="POST">
+              <fieldset class="form-group">
+                <label for="user">请输旧密码:</label>
+                <input class="form-control" type="password" name="oldPwd" placeholder="请输入旧密码">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="user">请输入新密码:</label>
+                <input class="form-control" type="password" name="newPwd" placeholder="请输入新密码">
+              </fieldset>
+              <button class="btn btn-outline-danger" style="width:100%;margin-top:5px;" type="submit">修改</button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
     <script src="../../js/jquery-3.1.1.min.js"></script>
@@ -173,6 +195,22 @@
           $(".add_class_modal").modal("show");
         });
 
+        $(".add_ctype").click(function(){
+          $(".add_ctype_modal").modal("show");
+        });
+
+        $(".alter_ctype").click(function(){
+          var value = $(this).val();
+          var arrs = value.split(".");
+
+          var id = arrs[0];
+          var name = arrs[1];
+
+          $("#ctypeid").val(id);
+          $("#ctype_name_later").val(name);
+
+          $(".alter_ctype_modal").modal("show");
+        });
         $(".alter_class").click(function(){
           var value = $(this).val();
 
@@ -387,6 +425,11 @@
           $(".nav_course_type").addClass("active");
           $("#tea_manager").removeClass("active");
           $("#course_type").addClass("active");</script>';
+        }else if($id == 6){
+          echo '<script>$(".nav_tea_manager").removeClass("active");
+          $(".nav_alter_pwd").addClass("active");
+          $("#tea_manager").removeClass("active");
+          $("#alter_pwd").addClass("active");</script>';
         }
       }
     ?>

@@ -65,7 +65,7 @@
 <!--模态框结束-->
 
 
-<!--添加教务管理员的模态框-->
+<!--修改系所的模态框-->
 <div class="modal fade alter_xisuo_modal">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -74,7 +74,7 @@
           <span aria-hidden="true">&times;</span>
           <span class="sr-only">Close</span>
         </button>
-        <h4 class="modal-title title">添加教务管理员</h4>
+        <h4 class="modal-title title">修改系所</h4>
       </div>
       <form action="../../controller/alter_xisuo.php" method="GET">
         <div class="modal-body">

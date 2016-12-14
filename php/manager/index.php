@@ -26,6 +26,9 @@
 	<body>
 
 
+
+
+
     <!--添加教务管理员的模态框-->
     <div class="modal fade add_modal">
       <div class="modal-dialog" role="document">
@@ -138,17 +141,26 @@
       </ul>
       <!-- Tab panes -->
       <div class="tab-content">
+
         <div role="tabpanel" class="tab-pane active" id="tea_manager"><?php
           require("./tea_manager.php");
          ?>
          <a class="add_btn"><img class="add" src="../../images/add.png"></img></a>
        </div>
+
         <div role="tabpanel" class="tab-pane" id="sys_info">
           <?php require("./xisuo_info.php"); ?>
           <a class="add_xisuo"><img class="add" src="../../images/add.png"></img></a>
         </div>
-        <div role="tabpanel" class="tab-pane" id="profession">专业信息</div>
-        <div role="tabpanel" class="tab-pane" id="class_info">班级信息</div>
+
+        <div role="tabpanel" class="tab-pane" id="profession">
+          <?php require("./zhuanye_info.php"); ?>
+          <a class="add_zhuanye"><img class="add" src="../../images/add.png"></img></a>
+        </div>
+
+        <div role="tabpanel" class="tab-pane" id="class_info">
+          <?php require("./class_info.php"); ?>
+        </div>
         <div role="tabpanel" class="tab-pane" id="course_type">课程类别</div>
       </div>
     </div>
@@ -156,6 +168,44 @@
 		<script src="../../js/bootstrap.min.js"></script>
     <script text="text/javascript">
       $(document).ready(function() {
+
+        $(".add_class").click(function(){
+          $(".add_class_modal").modal("show");
+        });
+
+        $(".alter_class").click(function(){
+          var value = $(this).val();
+
+          var arrs = value.split(".");
+          var id = arrs[0];
+          var name = arrs[1];
+          var zhuanyeid = arrs[2];
+          var inyear = arrs[3];
+
+          $("#classid").val(id);
+          $("#class_name_alter").val(name);
+          $("#class_zhuanye_alter").val(zhuanyeid);
+          $("#inyear_alter").val(inyear);
+
+          $(".alter_class_modal").modal("show");
+        });
+
+        $(".alter_zhuanye").click(function(){
+          var value = $(this).val();
+          var arrs = value.split(".");
+          var id = arrs[0];
+          var name = arrs[1];
+          var xisuoid = arrs[2];
+          $("#zhuanye_id").val(id);
+          $("#zhuanye_name_alter").val(name);
+          $("#zhuanye_xisuo_alter").val(xisuoid);
+
+          $(".alter_zhuanye_modal").modal("show");
+        });
+
+        $(".add_zhuanye").click(function(){
+          $(".add_zhuanye_modal").modal("show");
+        });
 
         $(".add_xisuo").click(function(){
           $(".add_xisuo_modal").modal("show");

@@ -21,6 +21,7 @@
 
 	<link rel="stylesheet" href="../../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../css/tea_manager.css">
+  <link rel="stylesheet" href="../../css/bootstrap-select.min.css">
 	<head>
 	</head>
 
@@ -60,28 +61,92 @@
         </div>
 
         <div role="tabpanel" class="tab-pane" id="c_info">
-          开课计划维护
+          <?php require("./c_info.php"); ?>
         </div>
 
         <div role="tabpanel" class="tab-pane" id="c_data">
-          开课数据维护
+          <?php require("./c_data.php"); ?>
         </div>
         <div role="tabpanel" class="tab-pane" id="alter_pwd">
-          密码修改
+          <div class="alter_pwd_pane container">
+            <form action="../../controller/alter_tea_manager_pwd.php" method="POST">
+              <fieldset class="form-group">
+                <label for="user">请输旧密码:</label>
+                <input class="form-control" type="password" name="oldPwd" placeholder="请输入旧密码">
+              </fieldset>
+              <fieldset class="form-group">
+                <label for="user">请输入新密码:</label>
+                <input class="form-control" type="password" name="newPwd" placeholder="请输入新密码">
+              </fieldset>
+              <button class="btn btn-outline-danger" style="width:100%;margin-top:5px;" type="submit">修改</button>
+            </form>
+          </div>
         </div>
 
       </div>
     </div>
     <script src="../../js/jquery-3.1.1.min.js"></script>
 		<script src="../../js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap-select.js"></script>
+    <script src="../../js/i18n/defaults-zh_CN.js"></script>
     <script text="text/javascript">
     $(document).ready(function() {
       $(".add_stu").click(function(event) {
         $(".add_stu_modal").modal("show");
       });
 
+      $(".add_cdata").click(function(){
+        $(".add_cdata_modal").modal("show");
+      });
+
+      $(".add_cplan").click(function(){
+        $(".add_cplan_modal").modal("show");
+      });
+
       $(".add_tea").click(function(){
         $(".add_tea_modal").modal("show");
+      });
+
+      $(".alter_cdata").click(function(){
+        var value = $(this).val();
+        var arrs = value.split(".");
+
+        var id = arrs[0];
+        var cplanid = arrs[1];
+        var teaid = arrs[2];
+        var classid = arrs[3];
+        var max = arrs[4];
+
+        $("#cdataid").val(id);
+        $("#cdata_cplanid_alter").val(cplanid);
+        $("#cdata_teaid_alter").val(teaid);
+        $("#cdata_classid_alter").val(classid);
+        $("#cdata_max_alter").val(max);
+
+        $(".alter_cdata_modal").modal("show");
+      });
+
+      $(".alter_cplan").click(function(){
+        var value = $(this).val();
+        var arrs = value.split(".");
+
+        var id = arrs[0];
+        var cid = arrs[1];
+        var name = arrs[2];
+        var ctypeid = arrs[3];
+        var xueshi = arrs[4];
+        var xuefen = arrs[5];
+        var year = arrs[6];
+
+        $("#cplan_id").val(id);
+        $("#cid_alter").val(cid);
+        $("#cplan_name_alter").val(name);
+        $("#cplan_ctypeid_alter").val(ctypeid);
+        $("#xueshi_alter").val(xueshi);
+        $("#xuefen_alter").val(xuefen);
+        $("#year_alter").val(year);
+
+        $(".alter_cplan_modal").modal("show");
       });
 
       $(".alter_tea").click(function(){
@@ -125,6 +190,7 @@
 
         $(".alter_stu_modal").modal("show");
       });
+
     });
     </script>
       <?php

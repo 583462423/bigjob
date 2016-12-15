@@ -20,7 +20,7 @@
     exit;
   }
 
-  if(!$row["pwd"] == $oldPwd){
+  if(! ($row["pwd"] == $oldPwd)){
     echo '<script>alert("原密码错误,请重新输入！");location.href="../php/manager/index.php?id=6";</script>';
     exit;
   }

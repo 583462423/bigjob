@@ -42,3 +42,16 @@ body,html{
   background: #5BC0DE;
   box-shadow: 0px 0px 10px 2px #5BC0DE;
 }
+
+.del{
+  margin-right: 5px;
+}
+
+.alter_pwd_pane{
+  margin-top:100px;
+  width:50%;
+  border:1px solid #ccc;
+  padding:40px;
+  border-radius:5px;
+  box-shadow: 0px 0px 8px 0px #ccc;
+}

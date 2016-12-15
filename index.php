@@ -39,7 +39,7 @@
 			<form action="" method="post">
 				<fieldset class="form-group">
 					<label for="user">账号:</label>
-					<input class="form-control" name="user" id="user" placeholder="请输入账号">
+					<input class="form-control" name="user" id="user" placeholder="请输入账号或学号">
 				</fieldset>
 				<fieldset class="form-group">
 					<label for="pwd">密码:</label>

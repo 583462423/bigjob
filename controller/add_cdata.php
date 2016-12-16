@@ -3,15 +3,20 @@
   //添加的专业名
   $cplanid = $_GET["cplanid"];
   $teaid = $_GET["teaid"];
-  $classid = $_GET["classid"];
-  $max = $_GET["max"];
-
-  $cnt = count($classid);
-
-  $classids = $classid[0];
-  for($i=1;$i<$cnt;$i++){
-    $classids = $classids . "," . $classid[$i];
+  $classid = null;
+  if(isset($_GET["classid"])){
+    $classid = $_GET["classid"];
   }
+  $max = $_GET["max"];
+  $classids = "";
+  if($classid != null){
+      $cnt = count($classid);
+      $classids = $classid[0];
+      for($i=1;$i<$cnt;$i++){
+        $classids = $classids . "," . $classid[$i];
+      }
+  }
+
 
   require("../php/conn.php");
 

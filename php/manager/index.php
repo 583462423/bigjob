@@ -26,9 +26,6 @@
 	<body>
 
 
-
-
-
     <!--添加教务管理员的模态框-->
     <div class="modal fade add_modal">
       <div class="modal-dialog" role="document">
@@ -70,7 +67,6 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
     <!--模态框结束-->
-
 
     <!--修改教务管理员的模态框-->
     <div class="modal fade alter_modal">
@@ -118,7 +114,10 @@
 
 
     <div class="top-panel">
-
+      <div class="info">
+        您好,<?php echo $_COOKIE["user"];?>
+        <a href="../../controller/quit.php">退出</a>
+      </div>
     </div>
 
     <div class="container main_panel">

@@ -28,6 +28,10 @@
 	<body>
 
     <div class="top-panel">
+      <div class="info">
+        您好,<?php echo $_COOKIE["user"];?>
+        <a href="../../controller/quit.php">退出</a>
+      </div>
     </div>
 
     <div class="container main_panel">
